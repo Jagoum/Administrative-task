@@ -40,14 +40,17 @@ User Accounts:
 
    ```sh
    passwd username
+   ``` 
+   ```sh
+   passwd -e username #immediately expires a user's password
    ```
-    
 
   * usermod: Modify user attributes (comment, group, home directory).
 
     ```sh
-    usermod -c "New comment" username
-    usermod -g groupname username
+    usermod -l new_username old_username #to change the username
+    usermod -c "New comment" username #to modify comment
+    usermod -g groupname username    
     usermod -d /path/to/home username
     ```
     
@@ -72,11 +75,11 @@ User Accounts:
   * chage: Manage password aging (minimum age, maximum age, warning period).
 
  ```sh 
- chage -l username # Show password aging settings for a user
- chage -m 14 -M 90 -W 7 username # Set minimum age (14 days), maximum age (90 days), and warning period (7 days)
+ chage -l username # Show password aging infomation  for a user
+ chage -m 14 -M 90 -W 7 username # Set minimum age (14 days), maximum age (90 days), and warning period (7 days) 
+ chage -E year-month-day username #set expiration date 
  ```   
-
-• Querying Information:
+• Filter the password and group databases:
 
   Use getent to retrieve information from system databases. For example, getent passwd username retrieves the password entry for a user. 
 ```sh
@@ -109,12 +112,13 @@ Group Accounts:
 
 Related Files:
 
-• /etc/passwd: Stores user account information. This file his 7 colons which contains the Username, passward, UID, GID, Option comment field, Home directory of user, and User shell
+• **/etc/passwd:** Stores user account information. This file his 7 colons which contains the **Username, passward, UID, GID, Option comment field, Home directory of user, and User shell**.
 
-• /etc/shadow: Stores encrypted user passwords (for security).This field has 9 field namely Username, Encrypted password, Date of last password change, Minimum password age, Maximum password age, Password warning period, Password inactivity period, Account expiration date, Reserved field.
-• /etc/group: Stores group information.
-• /etc/skel: Template directory copied when creating new users (customizable).
-• /etc/login.defs: Contains system-wide defaults for user account management, defining settings like password aging, UID/GID ranges, and security options.
+• **/etc/shadow:** Stores encrypted user passwords (for security).This file has 9 field namely **Username, Encrypted password, Date of last password change, Minimum password age, Maximum password age, Password warning period, Password inactivity period, Account expiration date, Reserved field**.
+• **/etc/group:** Stores group information. This file has 4 fields namely **Group name, Group password, GID, Member list**.
+• /etc/gshadow: Stores encrypted group password. It has 4 field which include **Group Name, Encrypted password, Group administrators, Group members**
+• **/etc/skel:** Template directory copied when creating new users (customizable).
+• **/etc/login.defs:** Contains system-wide defaults for user account management, defining settings like password aging, UID/GID ranges, and security options.
 
 Permissions and Ownership:
 
@@ -141,7 +145,8 @@ Security Best Practices:
 • Password rotation: Require users to change passwords regularly.
 • System updates: Patch vulnerabilities promptly.
 
-By mastering these commands, concepts, and files, you can effectively manage user and group accounts, ensuring a secure and stable Linux s
+### Commands that do similar task 
+1. passwd and chage
 
 |Passwd Command   |   chage command    |description|
 |-----------------|--------------------|-----------|        
@@ -149,5 +154,20 @@ By mastering these commands, concepts, and files, you can effectively manage use
 |  passwd -x               |   chage -M                 |Set the maximum password lifetime for a user account|
 |   passwd -w              |      chage -W              |Set the number of days of warning before the password expires 
 |   passwd -i              |   chage -I                 |Set the number of days of inactivity after a password expires during which the user shouldupdate the password (otherwise the account will be disabled)|
-|  passwd -S               | chage -l                   |
-|                 |                    |
+|  passwd -S               | chage -l                   |show brief information about the password of the user account
+
+2.passwd and usermod
+
+|passwd  |usermod  |description
+|--------|---------|----------|
+| passwd -l                | usermod -L                   |lock a user
+|passwd -u| usermod -U|unlocks a user
+3. useradd and usermod 
+
+|Options    |usermod |useradd       |
+|-----------|--------|--------------| 
+|-e        |  reset expiration date      |set expiration date              | 
+| -s        | change login shell       |   set login shell           | 
+|       -c       | modify comment       | create user with comment             |
+|           -d   |  change user home directory      |set path to user home directory              | 
+|    -g,-aG      |add user to group -ag appends while -g overwrites        | add user to a group             |  
