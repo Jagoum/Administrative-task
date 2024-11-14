@@ -127,3 +127,8 @@ You can also add system crons in /etc/cron.daily/ directory.
 `at teatime cat file.txt` 
  
  Teatime is  16:00 OR 4:00 pm
+> some other commands used with at include
+- `atq`
+-`atrm`
+
+An alternative to at is systemd-run
