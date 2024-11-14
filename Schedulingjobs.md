@@ -26,12 +26,13 @@ By the end of this session, you will learn the following
 # <font color="orande"> <center> Introduction  </font>
 As a system admistrator schelduling task is a very important task as you will not always have time to manually monitor some activities.
  
- 1. <font color="pink"> Cron jobs </font>
- > Cron is daemon run at the background and wakes up every minute to  see which jobs or tasks are avialable.
+ > 1. <font color="pink"> Cron jobs </font>
  
- > Anacron is a facility or program that is used to schedule jobs is good for systems that can be powered off. And they can only be edited by root users.
+ Cron is daemon run at the background and wakes up every minute to  see which jobs or tasks are avialable.
+ 
+ Anacron is a facility or program that is used to schedule jobs is good for systems that can be powered off. And they can only be edited by root users.
 
-2. <font color="pink"> Differences between user cron and system cron </font>
+> 2. <font color="pink"> Differences between user cron and system cron </font>
 
 One of the main difference between user cron and system cron is the file where they are stored eg
 
@@ -48,7 +49,7 @@ In scheduling cron jobs, some of the following special characters can be used
 |-|This can be used to specify a range of possible values|1-30 * * 1-20 0-6  `command`|
 |/|This can be used to specify step values ie how oftem it should repeat|*/30 * * * * `command`|
 
-3.  <font color="pink"> To add a cron job you can edit the crontab file </font>
+> 3.  <font color="pink"> To add a cron job you can edit the crontab file </font>
 ```sh
 vim /etc/crontab
 ```
@@ -117,4 +118,12 @@ You can also add system crons in /etc/cron.daily/ directory.
 
 > 6. scheduling cron jobs with `at ` command
 
+`at` is a  one time job scheduling command that is used to schedule jobs that should occur once.
 
+> Examples 
+
+`at  now +minutes echo "My first at job "> file.txt`
+
+`at teatime cat file.txt` 
+ 
+ Teatime is  16:00 OR 4:00 pm
