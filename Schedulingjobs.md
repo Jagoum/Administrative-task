@@ -82,5 +82,39 @@ As a system administator I love using this one alot to schedule my jobs
 5. <font color="pink">Now let's look at some cron variables</font><br>
 The table below summarises the variables used in crons with some examples 
 
-|||
+|Variable|Description|
 |-----|-----|
+|PATH|It is used to precise or give the absolute path to you task|
+|SHELL|It is used to indicate which shell will be used to exercute the task|
+|MAILTO|It is used specify the address where that should be message when the task is done|
+HOME|It is used to specify the home where the code should be saved|
+
+Hmm all this is just theoritical now lets do some practice
+> Examples
+
+Lets say I want to run my hello.sh script minute after two days.
+
+Note:
+
+- By default the mail will be send to the user who added the cron jobs
+- To remonve a schedule cron job use `cron -r`
+- To see scheduled cron jobs use `cron -l` 
+- To check your mail you can
+- To specify the name of the user whose crontabs need to be edited use `crontab -u username`
+
+```
+cat /var/spool/mail/username 
+```
+> Solution
+
+``` 
+crontab -e  
+- add the  lines below
+*  *  */2  *   *  /home/username/directory/hello.sh
+```
+You can also add system crons in /etc/cron.daily/ directory.
+
+
+> 6. scheduling cron jobs with `at ` command
+
+
