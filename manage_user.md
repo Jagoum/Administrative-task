@@ -170,5 +170,5 @@ Security Best Practices:
 | -s        | change login shell       |   set login shell           | 
 |       -c       | modify comment       | create user with comment             |
 |           -d   |  change user home directory      |set path to user home directory              | 
-|    -g,-aG      |add user to group -ag appends while -g overwrites        | add user to a group             |  
-
+|    -g    |change user's primary group       | add user's primary group             |  
+|    -G,-aG      |add user to secondary group or  add by overwriting        | add user to secondary group or  add by overwriting              |  
