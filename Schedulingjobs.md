@@ -131,4 +131,46 @@ You can also add system crons in /etc/cron.daily/ directory.
 - `atq`
 -`atrm`
 
-An alternative to at is systemd-run
+An alternative to `cron` is [timer] init in system .timer services in /etc/systemd/system/
+"OnCalendar" is used to precise the time at which the job need to be exercuted.
+
+Format 
+======
+[Timer]
+OnCalendar=DOW Y-M-D H:M:S
+Persistent=true
+> Example
+
+create and and edit a file file.timer in /etc/systemd/system/ directory
+
+```
+[Unit]
+Description=run the timing task
+
+[Timer]
+OnCalendar= *-*-* 00:0/2:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target
+```
+To run this you must create a a service with thesame name as the timer with .service extension in the same directory.
+let see
+```
+[Unit]
+Description=Run my command
+OnFailure=mail-systemd-failure@%n.service
+# very important
+
+[Service]
+Type=onshot
+ExecStart=/usr/local/bin/custorm-command
+User=dedicated-user
+Group=dedicated-user
+```
+After you have finished, run `system daemond-reaload` to reload the daemond systemd .
+After this, enable it using `systemctl enable name.timer`
+next start it using `systemctl start name.timer`
+
+
+eg `systemctl list-timers` 
