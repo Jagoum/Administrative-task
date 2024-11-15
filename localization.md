@@ -5,7 +5,7 @@ some basc commands include :
  which shows time and date , we could also specify what is should output such as;
 date + '%[Y,M,D,C]' For year ,month , day , and century respectively
 - [x] ``cal `` :
-   shows the calendar and with #cal shows #/2 previous and #/2 next
+   shows the calendar 
 - [x] ``timedatectl`` :
  which shows local time , timezone ,UTC (Coordinated Universal Time) and other important timezone info
 * note that the ``/etc/timezone`` is the file that stores your timezone
