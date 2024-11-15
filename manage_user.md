@@ -1,6 +1,6 @@
 # Administrative Tasks
 ## Introduction
-Administrative tasks are tasks managed by a system administrator. System administrattion also known as sysadmins are information technology (IT) professionals who make sure an organisation's computer systems are functioning and meet the needs of the organisation. System administrators support, troubleshoot, and maintain computer servers and networks. 
+Administrative tasks are tasks managed by a system administrator. System administrators also known as sysadmins are information technology (IT) professionals who make sure an organisation's computer systems are functioning and meet the needs of the organisation. System administrators support, troubleshoot, and maintain computer servers and networks. 
 In this section we will be discussing more on;
 1. Manage user and group accounts and related system files
 1. Automate system administrative tasks by scheduling jobs
@@ -171,3 +171,4 @@ Security Best Practices:
 |       -c       | modify comment       | create user with comment             |
 |           -d   |  change user home directory      |set path to user home directory              | 
 |    -g,-aG      |add user to group -ag appends while -g overwrites        | add user to a group             |  
+
