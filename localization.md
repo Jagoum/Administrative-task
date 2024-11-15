@@ -2,7 +2,10 @@
 In Linux, localization refers to the process of adapting the system and its applications to a specific language, region, or culture. This involves setting various environmental variables, configuration files, and system settings to conform to the conventions of a target locale.Applications depend on environment vairiables and commands to decide the proper time and language to use
 some basc commands include :
 - [x] ``date`` :
- which shows time and date 
+ which shows time and date , we could also specify what is should output such as;
+date + '%[Y,M,D,C]' For year ,month , day , and century respectively
+- [x] ``cal `` :
+   shows the calendar and with #cal shows #/2 previous and #/2 next
 - [x] ``timedatectl`` :
  which shows local time , timezone ,UTC (Coordinated Universal Time) and other important timezone info
 * note that the ``/etc/timezone`` is the file that stores your timezone
@@ -34,8 +37,8 @@ encoding configuration other than the system where the text was created. The com
 can be used to solve this issue . For example say a file named original.txt from the ISO-8859-1 encoding needs to be converted to converted.txt using UTF-8 encoding . 
 We can simply use the command ``iconv -f ISO-8859-1 -t UTF-8 original.txt > converted.txt``  
 * test example 
-```
 say this is the ISO-8859-1 encoded file named example.txt
+```
 Bonjour, comment allez-vous?
 
 Das ist ein Beispieltext auf Deutsch.
