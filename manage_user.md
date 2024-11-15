@@ -115,9 +115,13 @@ Related Files:
 • **/etc/passwd:** Stores user account information. This file his 7 colons which contains the **Username, passward, UID, GID, Option comment field, Home directory of user, and User shell**.
 
 • **/etc/shadow:** Stores encrypted user passwords (for security).This file has 9 field namely **Username, Encrypted password, Date of last password change, Minimum password age, Maximum password age, Password warning period, Password inactivity period, Account expiration date, Reserved field**.
+
 • **/etc/group:** Stores group information. This file has 4 fields namely **Group name, Group password, GID, Member list**.
+
 • /etc/gshadow: Stores encrypted group password. It has 4 field which include **Group Name, Encrypted password, Group administrators, Group members**
+
 • **/etc/skel:** Template directory copied when creating new users (customizable).
+
 • **/etc/login.defs:** Contains system-wide defaults for user account management, defining settings like password aging, UID/GID ranges, and security options.
 
 Permissions and Ownership:
