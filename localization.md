@@ -13,7 +13,7 @@ some basc commands include :
  * also ``/usr/share/zoneinfo`` is a directory that stores all timezones so that ``/etc/localtime`` can just symbolically link to it . This means that someone in Africa,Douala is under the file ``/usr/share/zoneinfo/Africa/Douala`` 
  #### LANGUAGE AND CHARACTER ENCODING 
   A set of parameterrs that define the user's language , country and any special variant preferences is known as the __Locale__
-``LANG`` is the  environment variable storing basic locale configuration . This value take the format ab_CB where ab --> language code and CD --> region code . The system wide local settings are configured and stored in the  ``/etc/locale.conf`` file
+``LANG`` is the  environment variable storing basic locale configuration . This value take the format ab_CB where ab --> language code and CD --> region code . The system wide local settings are configured and stored in the  ``/etc/locale.gen`` file
 - [x] ``localectl``: 
  available on systemd system manager can be used to change the system locale . This locale contains other sub environment variables which can be displayed using the ``locale`` command  This environment variables include ;
 - LC_COLLATE :
