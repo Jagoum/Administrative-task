@@ -5,7 +5,7 @@ some basc commands include :
  which shows time and date 
 - [x] ``timedatectl`` :
  which shows local time , timezone ,UTC (Coordinated Universal Time) and other important timezone info
-* note that the ``/etc/timezone`` is the file that sti=ores your timezone
+* note that the ``/etc/timezone`` is the file that stores your timezone
 - [x] ``tzselect`` :
  This command provides an interactive method of choosing a default timezone .
  ``TZ`` is the envronment variable responsible for holdin the timezone for the shell session
